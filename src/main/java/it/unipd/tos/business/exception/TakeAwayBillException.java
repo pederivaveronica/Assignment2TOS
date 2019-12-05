@@ -3,7 +3,9 @@ package it.unipd.tos.business.exception;
 
 public class TakeAwayBillException extends Exception {
     public TakeAwayBillException(String msg) {
-        super(msg);
+        
+    	super(msg);
+ 
     }
 
 }
