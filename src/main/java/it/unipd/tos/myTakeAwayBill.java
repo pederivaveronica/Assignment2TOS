@@ -14,6 +14,11 @@ public class myTakeAwayBill implements TakeAwayBill {
 	public double getOrderPrice(List<MenuItem> itemsOrdered) 
 			throws TakeAwayBillException {
 		
+		//caso 4
+        if (itemsOrdered.size() > 30) {
+            throw new TakeAwayBillException("Troppi elementi ordinati");
+        }
+		
 		//totale
 		double totale = 0;
 		//numero totale panini
