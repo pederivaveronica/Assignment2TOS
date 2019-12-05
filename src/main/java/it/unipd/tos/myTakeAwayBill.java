@@ -57,6 +57,11 @@ public class myTakeAwayBill implements TakeAwayBill {
             double sconto = totale * 10 / 100;
             totale = totale - sconto;
         }
+        
+        //caso 5
+        if (totale < 10) {
+            totale += 0.5;
+        }
 
         
 		return totale;
