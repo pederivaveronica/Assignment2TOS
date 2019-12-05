@@ -20,6 +20,8 @@ public class myTakeAwayBill implements TakeAwayBill {
         int numPanini = 0;
         //costo minimo panino
         double minPrice = Double.MAX_VALUE;
+        //totale panini + fritti
+        double totalepf=0;
 
 
         //caso 1
@@ -33,7 +35,10 @@ public class myTakeAwayBill implements TakeAwayBill {
                 }
             }
 
-          
+            if (itemsOrdered.get(i).getType() == itemType.Panini
+                    || itemsOrdered.get(i).getType() == itemType.Fritti) {
+                totalepf += itemsOrdered.get(i).getPrice();
+            }
         }
 
         //caso 2
@@ -41,6 +46,14 @@ public class myTakeAwayBill implements TakeAwayBill {
             totale -= minPrice;
             totale += minPrice * 0.5;
         }
+        
+        //caso 3
+        if (totalepf > 50) {
+            double sconto = totale * 10 / 100;
+            totale = totale - sconto;
+        }
+
+        
 		return totale;
 	}
 	
